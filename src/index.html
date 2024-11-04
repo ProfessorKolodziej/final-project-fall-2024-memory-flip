@@ -13,12 +13,43 @@
 </head>
 
 <body>
-	<main class="content-container">
-		<h1>Welcome to your final project!</h1>
-	</main>
+	<div class="container">
+        <!-- Start Screen -->
+        <div class="screen" id="start-screen">
+            <h1 class="title">Memory Flip Quest</h1>
+            <button class="btn" onclick="showIntro()">Click to Continue</button>
+        </div>
+
+        <!-- Intro Screen -->
+        <div class="screen" id="intro-screen" style="display: none;">
+            <h2>About The Game</h2>
+            <ol>
+                <li>Choose your challenge!</li>
+                <li>Flip through a grid of hidden symbols.</li>
+                <li>Match pairs as quickly as possible!</li>
+            </ol>
+            <button class="btn" onclick="showMode()">Next</button>
+        </div>
+
+        <!-- Mode Selection Screen -->
+        <div class="screen" id="mode-screen" style="display: none;">
+            <h2>Choose your level, and let the game begin!</h2>
+            <button class="btn mode-btn">Easy</button>
+            <button class="btn mode-btn">Hard</button>
+        </div>
+
+        <!-- Prepare and Go Screens -->
+        <div class="prepare-screen" id="prepare-screen" style="display: none;">
+            <h2>Ready?</h2>
+        </div>
+        <div class="go-screen" id="go-screen" style="display: none;">
+            <h2>GO!</h2>
+        </div>
+    </div>
 	<!--
 		This is where you should link your JS file.
 	-->
+	<script src="script.js"></script>
 </body>
 
 </html>
