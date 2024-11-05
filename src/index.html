@@ -6,50 +6,52 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Update your description here" />
-	<title>Update your title here</title>
+	<title>Memory Flip Quest</title>
 	<!--
 		This is where you should link your CSS file.
 	-->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-	<div class="container">
-        <!-- Start Screen -->
-        <div class="screen" id="start-screen">
-            <h1 class="title">Memory Flip Quest</h1>
-            <button class="btn" onclick="showIntro()">Click to Continue</button>
-        </div>
+	<header class="header">
+        <h1 class="title">Memory Flip Quest</h1>
+    </header>
+    <main class="main-content">
+        <section class="screen start-screen" aria-labelledby="start-heading">
+            <h2 id="start-heading" class="visually-hidden">Start Screen</h2>
+            <p class="description">Click the button below to continue:</p>
+            <button class="btn continue-btn">Click to Continue</button>
+        </section>
 
-        <!-- Intro Screen -->
-        <div class="screen" id="intro-screen" style="display: none;">
-            <h2>About The Game</h2>
-            <ol>
+        <section class="screen intro-screen hidden" aria-labelledby="intro-heading">
+            <h2 id="intro-heading">About The Game</h2>
+            <ol class="instructions">
                 <li>Choose your challenge!</li>
                 <li>Flip through a grid of hidden symbols.</li>
                 <li>Match pairs as quickly as possible!</li>
             </ol>
-            <button class="btn" onclick="showMode()">Next</button>
-        </div>
+            <button class="btn next-btn">Next</button>
+        </section>
 
-        <!-- Mode Selection Screen -->
-        <div class="screen" id="mode-screen" style="display: none;">
-            <h2>Choose your level, and let the game begin!</h2>
-            <button class="btn mode-btn">Easy</button>
-            <button class="btn mode-btn">Hard</button>
-        </div>
+        <section class="screen mode-screen hidden" aria-labelledby="mode-heading">
+            <h2 id="mode-heading">Choose your level, and let the game begin!</h2>
+            <div class="button-group">
+                <button class="btn mode-btn">Easy</button>
+                <button class="btn mode-btn">Hard</button>
+            </div>
+        </section>
 
-        <!-- Prepare and Go Screens -->
-        <div class="prepare-screen" id="prepare-screen" style="display: none;">
-            <h2>Ready?</h2>
-        </div>
-        <div class="go-screen" id="go-screen" style="display: none;">
-            <h2>GO!</h2>
-        </div>
-    </div>
-	<!--
-		This is where you should link your JS file.
-	-->
-	<script src="script.js"></script>
+        <section class="screen prepare-screen hidden" aria-labelledby="prepare-heading">
+            <h2 id="prepare-heading">Ready?</h2>
+        </section>
+
+        <section class="screen go-screen hidden" aria-labelledby="go-heading">
+            <h2 id="go-heading">GO!</h2>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
