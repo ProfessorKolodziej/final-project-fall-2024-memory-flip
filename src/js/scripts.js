@@ -6,12 +6,31 @@
 // - Run npm run test regularly to check autograding
 // - You'll need to link this file to your HTML :)
 
-function showScreen(screenId) {
-    // 隐藏所有界面
-    const screens = document.querySelectorAll('.screen');
-    screens.forEach(screen => screen.style.display = 'none');
+document.addEventListener("DOMContentLoaded", () => {
+	const pages = document.querySelectorAll('.page');
+	let currentPage = 0;
 
-    // 显示选定的界面
-    document.getElementById(screenId).style.display = 'block';
+	function showPage(index) {
+		pages.forEach((page, i) => {
+			page.style.display = i === index ? 'block' : 'none';
+		});
+	}
+
+	document.addEventListener("click", () => {
+		if (currentPage < pages.length - 1) {
+			currentPage++;
+			showPage(currentPage);
+		}
+	});
+
+	showPage(currentPage);
+});
+
+function startGame(level) {
+	if (level === 'easy') {
+		alert('You have selected Easy mode. You will have 1 minute to complete the game!');
+	} else if (level === 'hard') {
+		alert('You have selected Hard mode. You will have 30 seconds to complete the game!');
+	}
+	// Add logic to initialize the game based on the level
 }
-

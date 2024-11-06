@@ -10,48 +10,64 @@
 	<!--
 		This is where you should link your CSS file.
 	-->
-    <link rel="stylesheet" href="style.css">
+	<link href="css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
-	<header class="header">
-        <h1 class="title">Memory Flip Quest</h1>
-    </header>
-    <main class="main-content">
-        <section class="screen start-screen" aria-labelledby="start-heading">
-            <h2 id="start-heading" class="visually-hidden">Start Screen</h2>
-            <p class="description">Click the button below to continue:</p>
-            <button class="btn continue-btn">Click to Continue</button>
-        </section>
+	<!-- Start Page -->
+	<section id="start" class="page">
+		<h1 class="center">MEMORY<br>FLIP<br>QUEST</h1>
+		<p>Click Anywhere to Continue</p>
+	</section>
 
-        <section class="screen intro-screen hidden" aria-labelledby="intro-heading">
-            <h2 id="intro-heading">About The Game</h2>
-            <ol class="instructions">
-                <li>Choose your challenge!</li>
-                <li>Flip through a grid of hidden symbols.</li>
-                <li>Match pairs as quickly as possible!</li>
-            </ol>
-            <button class="btn next-btn">Next</button>
-        </section>
+	<!-- Intro Page -->
+	<section id="intro" class="page">
+		<h2>About The Game</h2>
+		<div class="instructions">
+			<div class="step">
+				<span class="number">1</span>
+				<p>Choose your challenge!</p>
+			</div>
+			<div class="step">
+				<span class="number">2</span>
+				<p>Flip through a grid of hidden symbols.</p>
+				<div class="step-images">
+					<img src="card-back.png" alt="Card Back" class="step-image">
+					<img src="card-back.png" alt="Card Back" class="step-image">
+				</div>
+			</div>
+			<div class="step">
+				<span class="number">3</span>
+				<p>Match pairs in as quickly as possible!</p>
+				<div class="step-images">
+					<img src="card-front.png" alt="Card Front" class="step-image">
+					<img src="card-front.png" alt="Card Front" class="step-image">
+				</div>
+			</div>
+		</div>
+	</section>
 
-        <section class="screen mode-screen hidden" aria-labelledby="mode-heading">
-            <h2 id="mode-heading">Choose your level, and let the game begin!</h2>
-            <div class="button-group">
-                <button class="btn mode-btn">Easy</button>
-                <button class="btn mode-btn">Hard</button>
-            </div>
-        </section>
+	<!-- Mode Selection Page -->
+	<section id="mode" class="page">
+		<div class="mode-left">
+			<h2>Choose your level, and let the game<br>BEGIN!</h2>
+		</div>
+		<div class="mode-right">
+			<div class="level">
+				<button class="level-button easy">Easy</button>
+				<p class="level-description">Take it easy – you've got a <strong>full minute</strong> to find each pair and
+					enjoy the game!</p>
+			</div>
+			<div class="level">
+				<button class="level-button hard">Hard</button>
+				<p class="level-description"><strong>Only 30 seconds</strong> on the clock! Match each pair fast or risk
+					running out of time!</p>
+			</div>
+		</div>
+	</section>
 
-        <section class="screen prepare-screen hidden" aria-labelledby="prepare-heading">
-            <h2 id="prepare-heading">Ready?</h2>
-        </section>
-
-        <section class="screen go-screen hidden" aria-labelledby="go-heading">
-            <h2 id="go-heading">GO!</h2>
-        </section>
-    </main>
-    <script src="script.js"></script>
+	<script src="js/scripts.js"></script>
 </body>
 
 </html>
