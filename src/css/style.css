@@ -78,6 +78,12 @@ p {
 	margin-left: 20px;
 }
 
+.step-images img {
+	width: 100px;
+	height: auto;
+	max-width: 100%;
+}
+
 .cards {
 	display: none;
 }
