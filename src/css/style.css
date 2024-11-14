@@ -7,7 +7,7 @@ primary color variable below.
 
 /* General Styles */
 body {
-	font-family: 'Arial, sans-serif';
+	font-family: 'Arial', sans-serif;
 	background-color: #F1F0EA;
 	color: #333;
 	margin: 0;
