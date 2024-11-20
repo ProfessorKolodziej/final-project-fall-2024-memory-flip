@@ -216,13 +216,14 @@ p {
 }
 
 #quit-button,
-#restart-button,
-#music-toggle-button {
+#restart-button {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 }
 
+#quit-button,
+#restart-button,
 #timer {
 	background-color: #F2CC8F;
 	padding: 10px;
