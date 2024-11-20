@@ -60,15 +60,6 @@ p {
 
 }
 
-.number {
-	font-family: 'Moirai One', sans-serif;
-	font-size: 30rem;
-	font-weight: 400;
-	margin: 0;
-	text-align: center;
-
-}
-
 .highlight-begin {
 	font-family: 'Monofett', monospace;
 	font-size: 3rem;
@@ -124,7 +115,10 @@ p {
 }
 
 .number {
-	font-size: 2rem;
+	font-family: 'Moirai One', sans-serif;
+	font-size: 10rem;
+	font-weight: 400;
+	margin: 0;
 	color: #aa66cc;
 	margin-right: 10px;
 	min-width: 40px;
