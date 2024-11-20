@@ -147,3 +147,50 @@ function checkForWin(timeout = false) {
 		}, 100);
 	}
 }
+
+// Add Quit and Restart button logic
+const quitButton = document.getElementById('quit-button');
+const restartButton = document.getElementById('restart-button');
+const cards = document.querySelectorAll('.memory-card');
+
+// Quit button functionality
+quitButton.addEventListener('click', () => {
+	if (confirm('Are you sure you want to quit the game?')) {
+		window.location.reload(); // Refresh the page to quit and reset the game
+	}
+});
+
+// Restart button functionality
+restartButton.addEventListener('click', () => {
+	if (confirm('Do you want to restart the game?')) {
+		resetGame();
+	}
+});
+
+function resetGame() {
+	// Reset game state variables
+	hasFlippedCard = false;
+	lockBoard = false;
+	firstCard = null;
+	secondCard = null;
+
+	// Unflip all cards
+	cards.forEach(card => {
+		card.classList.remove('flipped');
+		card.addEventListener('click', flipCard);
+	});
+
+	// Reshuffle cards
+	shuffle();
+
+	// Reset timer
+	remainingTime = window.sessionStorage.getItem('difficulty') === 'easy' ? 60 : 30;
+	startTimer(document.getElementById('timer'));
+}
+
+function shuffle() {
+	cards.forEach(card => {
+		let randomPos = Math.floor(Math.random() * 18);
+		card.style.order = randomPos;
+	});
+}
