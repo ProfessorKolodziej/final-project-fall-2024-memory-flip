@@ -194,7 +194,7 @@ p {
 	background-color: #8bc6a9;
 	height: 100vh;
 	width: 100vw;
-	align-items: center;
+	align-content: center;
 }
 
 /* Go Page Styles */
@@ -202,6 +202,7 @@ p {
 	background-color: #E07A5F;
 	height: 100vh;
 	width: 100vw;
+	align-content: center;
 }
 
 /* Game Controls */
