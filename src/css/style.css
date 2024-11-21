@@ -94,8 +94,6 @@ p {
 
 }
 
-
-
 /* Start Page Styles */
 #start {
 	display: block;
@@ -187,22 +185,6 @@ p {
 
 .hard {
 	background-color: #E07A5F;
-}
-
-/* Ready Page Styles */
-#ready {
-	background-color: #8bc6a9;
-	height: 100vh;
-	width: 100vw;
-	align-content: center;
-}
-
-/* Go Page Styles */
-#go {
-	background-color: #E07A5F;
-	height: 100vh;
-	width: 100vw;
-	align-content: center;
 }
 
 /* Game Controls */

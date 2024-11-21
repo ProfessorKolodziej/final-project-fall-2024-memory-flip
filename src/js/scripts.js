@@ -7,40 +7,50 @@
 // - You'll need to link this file to your HTML :)
 
 document.addEventListener("DOMContentLoaded", () => {
-	// Variables for page navigation
-	const pages = document.querySelectorAll(".page");
-	let currentPage = 0;
+    // Variables for page navigation
+    const pages = document.querySelectorAll(".page");
+    let currentPage = 0;
 
-	function showPage(index) {
-		pages.forEach((page, i) => {
-			page.style.display = i === index ? "block" : "none";
-		});
-	}
+    function showPage(index) {
+        pages.forEach((page, i) => {
+            page.style.display = i === index ? "block" : "none";
+        });
+    }
 
-	// Navigation between pages
-	document.addEventListener("click", () => {
-		if (currentPage < pages.length - 1) {
-			currentPage++;
-			showPage(currentPage);
-		}
-	});
+    // General navigation for all pages except the 'mode' page
+    document.addEventListener("click", (event) => {
+        // Check if we are on the 'mode' page
+        if (currentPage === 2) {
+            return; // Do not navigate away unless a difficulty button is clicked
+        }
 
-	showPage(currentPage);
+        if (currentPage < pages.length - 1) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    });
 
-	// Difficulty buttons
-	const easyButton = document.querySelector(".level-button.easy");
-	const hardButton = document.querySelector(".level-button.hard");
+    // Difficulty buttons specifically for 'mode' page
+    const easyButton = document.querySelector(".level-button.easy");
+    const hardButton = document.querySelector(".level-button.hard");
 
-	easyButton.addEventListener("click", () => {
-		window.sessionStorage.setItem("difficulty", "easy");
-		startGame("easy");
-	});
+    easyButton.addEventListener("click", () => {
+        window.sessionStorage.setItem("difficulty", "easy");
+        currentPage++;
+        showPage(currentPage);
+        startGame("easy");
+    });
 
-	hardButton.addEventListener("click", () => {
-		window.sessionStorage.setItem("difficulty", "hard");
-		startGame("hard");
-	});
+    hardButton.addEventListener("click", () => {
+        window.sessionStorage.setItem("difficulty", "hard");
+        currentPage++;
+        showPage(currentPage);
+        startGame("hard");
+    });
+
+    showPage(currentPage);
 });
+
 
 function startGame(level) {
 	if (level === "easy") {
@@ -106,8 +116,8 @@ function flipCard() {
 
 function checkForMatch() {
 	let isMatch =
-		firstCard.querySelector(".front-face").src ===
-		secondCard.querySelector(".front-face").src;
+		firstCard.querySelector(".front-face").alt ===
+		secondCard.querySelector(".front-face").alt;
 
 	if (isMatch) {
 		disableCards();
@@ -139,15 +149,27 @@ function resetBoard() {
 }
 
 function startTimer(timerDisplay) {
+	if (timer) {
+        clearInterval(timer);
+    }
+
 	timerDisplay.innerHTML = `Time: ${remainingTime}s`;
 	timer = setInterval(() => {
 		remainingTime--;
 		timerDisplay.innerHTML = `Time: ${remainingTime}s`;
 
 		if (remainingTime === 0) {
-			clearInterval(timer);
-			checkForWin(true); // Check win on timeout
-		}
+	clearInterval(timer);
+	if (![...document.querySelectorAll(".memory-card")].every(card => card.classList.contains("flipped"))) {
+		setTimeout(() => {
+			alert("Oh no! DON’T GIVE UP!");
+		}, 100);
+	} else {
+		setTimeout(() => {
+			alert("Hooray! YOU WIN!");
+		}, 100);
+	}
+}
 	}, 1000);
 }
 
