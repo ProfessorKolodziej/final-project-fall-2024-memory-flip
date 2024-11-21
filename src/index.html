@@ -81,6 +81,9 @@
 		<header class="game-controls">
 			<button id="quit-button">Quit</button>
 			<button id="restart-button">Restart</button>
+			<button id="music-toggle-button">
+				<img id="music-icon" src="images/musicon.png" alt="Music On" />
+			</button>
 			<div id="timer" class="timer">Time: 60s</div>
 		</header>
 
@@ -160,6 +163,12 @@
 			</div>
 		</section>
 	</section>
+
+	<!-- Add background music -->
+	<audio id="bgm" loop>
+		<source src="audio/Kids-Games---Loop-2_AdobeStock_526743674.wav" type="audio/wav">
+		Your browser does not support the audio element.
+	</audio>
 
 	<script src="js/scripts.js"></script>
 

@@ -7,50 +7,55 @@
 // - You'll need to link this file to your HTML :)
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Variables for page navigation
-    const pages = document.querySelectorAll(".page");
-    let currentPage = 0;
+	// Variables for page navigation
+	const pages = document.querySelectorAll(".page");
+	let currentPage = 0;
 
-    function showPage(index) {
-        pages.forEach((page, i) => {
-            page.style.display = i === index ? "block" : "none";
-        });
-    }
+	function showPage(index) {
+		pages.forEach((page, i) => {
+			page.style.display = i === index ? "block" : "none";
+		});
 
-    // General navigation for all pages except the 'mode' page
-    document.addEventListener("click", (event) => {
-        // Check if we are on the 'mode' page
-        if (currentPage === 2) {
-            return; // Do not navigate away unless a difficulty button is clicked
-        }
+		if (index === 3) {
+			startTimer(document.getElementById("timer"));
+		} else {
+			stopTimer();
+		}
+	}
 
-        if (currentPage < pages.length - 1) {
-            currentPage++;
-            showPage(currentPage);
-        }
-    });
+	// General navigation for all pages except the 'mode' page
+	document.addEventListener("click", (event) => {
+		// Check if we are on the 'mode' page
+		if (currentPage === 2) {
+			return; // Do not navigate away unless a difficulty button is clicked
+		}
 
-    // Difficulty buttons specifically for 'mode' page
-    const easyButton = document.querySelector(".level-button.easy");
-    const hardButton = document.querySelector(".level-button.hard");
+		if (currentPage < pages.length - 1) {
+			currentPage++;
+			showPage(currentPage);
+		}
+	});
 
-    easyButton.addEventListener("click", () => {
-        window.sessionStorage.setItem("difficulty", "easy");
-        currentPage++;
-        showPage(currentPage);
-        startGame("easy");
-    });
+	// Difficulty buttons specifically for 'mode' page
+	const easyButton = document.querySelector(".level-button.easy");
+	const hardButton = document.querySelector(".level-button.hard");
 
-    hardButton.addEventListener("click", () => {
-        window.sessionStorage.setItem("difficulty", "hard");
-        currentPage++;
-        showPage(currentPage);
-        startGame("hard");
-    });
+	easyButton.addEventListener("click", () => {
+		window.sessionStorage.setItem("difficulty", "easy");
+		currentPage++;
+		showPage(currentPage);
+		startGame("easy");
+	});
 
-    showPage(currentPage);
+	hardButton.addEventListener("click", () => {
+		window.sessionStorage.setItem("difficulty", "hard");
+		currentPage++;
+		showPage(currentPage);
+		startGame("hard");
+	});
+
+	showPage(currentPage);
 });
-
 
 function startGame(level) {
 	if (level === "easy") {
@@ -60,13 +65,7 @@ function startGame(level) {
 	}
 
 	// Start the game and set the timer
-	const timerDisplay = document.getElementById("timer");
-	const difficulty = window.sessionStorage.getItem("difficulty");
-	remainingTime = difficulty === "easy" ? 60 : 30;
-
-	// Display game page (update this based on your page setup)
 	showPage(3); // Assuming the 'game' section is the fourth page
-	startTimer(timerDisplay);
 }
 
 // Variables for the memory game
@@ -79,7 +78,6 @@ let remainingTime;
 // Initialize the game
 window.addEventListener("DOMContentLoaded", () => {
 	const cards = document.querySelectorAll(".memory-card");
-	const timerDisplay = document.getElementById("timer");
 
 	// Shuffle cards
 	(function shuffle() {
@@ -91,11 +89,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	// Add event listeners to cards
 	cards.forEach((card) => card.addEventListener("click", flipCard));
-
-	// Initialize timer based on difficulty
-	const level = window.sessionStorage.getItem("difficulty");
-	remainingTime = level === "easy" ? 60 : 30;
-	startTimer(timerDisplay);
 });
 
 function flipCard() {
@@ -150,8 +143,11 @@ function resetBoard() {
 
 function startTimer(timerDisplay) {
 	if (timer) {
-        clearInterval(timer);
-    }
+		clearInterval(timer);
+	}
+
+	const difficulty = window.sessionStorage.getItem("difficulty");
+	remainingTime = difficulty === "easy" ? 60 : 30;
 
 	timerDisplay.innerHTML = `Time: ${remainingTime}s`;
 	timer = setInterval(() => {
@@ -159,35 +155,19 @@ function startTimer(timerDisplay) {
 		timerDisplay.innerHTML = `Time: ${remainingTime}s`;
 
 		if (remainingTime === 0) {
-	clearInterval(timer);
-	if (![...document.querySelectorAll(".memory-card")].every(card => card.classList.contains("flipped"))) {
-		setTimeout(() => {
-			alert("Oh no! DON’T GIVE UP!");
-		}, 100);
-	} else {
-		setTimeout(() => {
-			alert("Hooray! YOU WIN!");
-		}, 100);
-	}
-}
+			clearInterval(timer);
+			if (![...document.querySelectorAll(".memory-card")].every(card => card.classList.contains("flipped"))) {
+				setTimeout(() => {
+					alert("Oh no! DON’T GIVE UP!");
+				}, 100);
+			}
+		}
 	}, 1000);
 }
 
-function checkForWin(timeout = false) {
-	const allCards = document.querySelectorAll(".memory-card");
-	const allFlipped = [...allCards].every((card) =>
-		card.classList.contains("flipped")
-	);
-
-	if (allFlipped) {
+function stopTimer() {
+	if (timer) {
 		clearInterval(timer);
-		setTimeout(() => {
-			alert("Hooray! YOU WIN!");
-		}, 100);
-	} else if (timeout) {
-		setTimeout(() => {
-			alert("Oh no! DON’T GIVE UP!");
-		}, 100);
 	}
 }
 
@@ -198,6 +178,7 @@ const cards = document.querySelectorAll(".memory-card");
 
 quitButton.addEventListener("click", () => {
 	if (confirm("Are you sure you want to quit the game?")) {
+		resetGame();
 		window.location.reload();
 	}
 });
@@ -220,6 +201,7 @@ function resetGame() {
 	});
 
 	shuffle();
+	stopTimer();
 
 	const difficulty = window.sessionStorage.getItem("difficulty");
 	remainingTime = difficulty === "easy" ? 60 : 30;
@@ -232,3 +214,24 @@ function shuffle() {
 		card.style.order = randomPos;
 	});
 }
+
+const musicToggleButton = document.getElementById("music-toggle-button");
+const musicIcon = document.getElementById("music-icon");
+const bgm = document.getElementById("bgm");
+let isPlaying = false;
+
+// Event listener for music toggle button
+musicToggleButton.addEventListener("click", () => {
+	if (isPlaying) {
+		// Pause the background music
+		bgm.pause();
+		musicIcon.src = "images/musicoff.png";
+		musicIcon.alt = "Music Off";
+	} else {
+		// Play the background music
+		bgm.play();
+		musicIcon.src = "images/musicon.png";
+		musicIcon.alt = "Music On";
+	}
+	isPlaying = !isPlaying;
+});
