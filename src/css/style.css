@@ -279,19 +279,6 @@ p {
 	transform: rotateY(0);
 }
 
-/* Done Button */
-.done-button {
-	margin-top: 20px;
-	padding: 15px 30px;
-	background-color: #F2CC8F;
-	border: none;
-	border-radius: 5px;
-	font-size: 1.2rem;
-	font-weight: bold;
-	cursor: pointer;
-	align-self: center;
-}
-
 /*
 CSS doesn't allow variables to be used in media
 queries just yet, but you can use these values
