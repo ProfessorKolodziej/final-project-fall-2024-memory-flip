@@ -160,9 +160,31 @@ function startTimer(timerDisplay) {
 				setTimeout(() => {
 					alert("Oh no! DON’T GIVE UP!");
 				}, 100);
+			} else {
+				setTimeout(() => {
+					alert("Hooray! YOU WIN!");
+				}, 100);
 			}
 		}
 	}, 1000);
+}
+
+function checkForWin(timeout = false) {
+	const allCards = document.querySelectorAll(".memory-card");
+	const allFlipped = [...allCards].every((card) =>
+		card.classList.contains("flipped")
+	);
+
+	if (allFlipped) {
+		clearInterval(timer);
+		setTimeout(() => {
+			alert("Hooray! YOU WIN!");
+		}, 100);
+	} else if (timeout) {
+		setTimeout(() => {
+			alert("Oh no! DON’T GIVE UP!");
+		}, 100);
+	}
 }
 
 function stopTimer() {
