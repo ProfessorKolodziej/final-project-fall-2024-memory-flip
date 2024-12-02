@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Update your description here" />
+	<title>Memory Flip Quest</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Moirai+One&family=Monofett&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet">
+
+	<!--
+		This is where you should link your CSS file.
+	-->
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- Start Page -->
+	<section id="start" class="page">
+		<h1 class="center">MEMORY<br>FLIP<br>QUEST</h1>
+		<p class="special-font">Click Anywhere to Continue</p>
+	</section>
+
+	<!-- Intro Page -->
+	<section id="intro" class="page">
+		<h2>About The Game</h2>
+		<div class="instructions">
+			<div class="step">
+				<span class="number">1</span>
+				<p>Choose your challenge!</p>
+			</div>
+			<div class="step">
+				<span class="number">2</span>
+				<p>Flip through a grid of hidden symbols.</p>
+				<div class="step-images">
+					<img src="images/cardback.jpg" alt="Card Back" class="step-image">
+					<img src="images/cardback.jpg" alt="Card Back" class="step-image">
+				</div>
+			</div>
+			<div class="step">
+				<span class="number">3</span>
+				<p>Match pairs in as quickly as possible!</p>
+				<div class="step-images">
+					<img src="images/animal5.jpg" alt="Card Front" class="step-image">
+					<img src="images/animal5.jpg" alt="Card Front" class="step-image">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Mode Selection Page -->
+	<section id="mode" class="page">
+		<div class="mode-left">
+			<h2>Choose your level, and let the game<br><span class="highlight-begin">BEGIN!</span></h2>
+		</div>
+		<div class="mode-right">
+			<div class="level">
+				<button class="level-button easy">Easy</button>
+				<p class="level-description">Take it easy – you've got a <strong>full minute</strong> to find each pair
+					and
+					enjoy the game!</p>
+			</div>
+			<div class="level">
+				<button class="level-button hard">Hard</button>
+				<p class="level-description"><strong>Only 30 seconds</strong> on the clock! Match each pair fast or risk
+					running out of time!</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Memory Game Cards Page -->
+	<section id="game" class="page">
+		<!-- Game Control Buttons -->
+		<header class="game-controls">
+			<button id="quit-button">Quit</button>
+			<button id="restart-button">Restart</button>
+			<button id="music-toggle-button">
+				<img id="music-icon" src="images/musicon.png" alt="Music On" />
+			</button>
+			<div id="timer" class="timer">Time: 60s</div>
+		</header>
+
+		<!-- Memory Game Cards -->
+		<section class="memory-game">
+			<div class="memory-card">
+				<img class="front-face" src="images/animal1.jpg" alt="card01" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal1.jpg" alt="card01" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal2.jpg" alt="card02" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal2.jpg" alt="card02" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal3.jpg" alt="card03" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal3.jpg" alt="card03" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal4.jpg" alt="card04" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal4.jpg" alt="card04" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal5.jpg" alt="card05" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal5.jpg" alt="card05" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal6.jpg" alt="card06" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal6.jpg" alt="card06" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal7.jpg" alt="card07" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal7.jpg" alt="card07" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal8.jpg" alt="card08" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal8.jpg" alt="card08" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal9.jpg" alt="card09" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+			<div class="memory-card">
+				<img class="front-face" src="images/animal9.jpg" alt="card09" />
+				<img class="back-face" src="images/cardback.jpg" alt="Memory Card" />
+			</div>
+		</section>
+	</section>
+
+	<!-- Add background music -->
+	<audio id="bgm" loop>
+		<source src="audio/Kids-Games---Loop-2_AdobeStock_526743674.wav" type="audio/wav">
+		Your browser does not support the audio element.
+	</audio>
+
+	<script src="js/scripts.js"></script>
+
+</body>
+
+</html>

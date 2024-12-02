@@ -1,0 +1,519 @@
+/*
+CSS controls the styling of the page.
+You can write a color in directly, or use variables.
+Try changing the color from blue to red in the
+primary color variable below.
+*/
+
+/* General Styles */
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #F1F0EA;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	text-align: left;
+}
+
+.page {
+	display: none;
+	padding: 20px;
+}
+
+.center {
+	text-align: center;
+}
+
+h1 {
+	font-family: 'Monofett', monospace;
+	font-size: 5rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	color: #000;
+	line-height: 1.2;
+}
+
+h2 {
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+p {
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 1.2rem;
+	margin: 20px 0;
+	text-shadow: 2px 2px 5px rgba(150, 150, 150, 0.5);
+}
+
+.special-font {
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	color: #928a8ab0;
+
+	text-align: center;
+
+}
+
+.highlight-begin {
+	font-family: 'Monofett', monospace;
+	font-size: 3rem;
+	font-weight: bold;
+	color: #000;
+
+}
+
+.mode-left h2 {
+	text-align: center;
+
+}
+
+.mode-right .level-description {
+	text-align: center;
+
+}
+
+.level-button {
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 2.5rem;
+	font-weight: 700;
+	color: #000;
+	background-color: #F2CC8F;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: left;
+	margin: 10px auto;
+	display: block;
+
+}
+
+/* Start Page Styles */
+#start {
+	display: block;
+}
+
+/* Instructions */
+.instructions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+}
+
+.step {
+	display: flex;
+	align-items: center;
+}
+
+.number {
+	font-family: 'Moirai One', sans-serif;
+	font-size: 10rem;
+	font-weight: 400;
+	margin: 0;
+	color: #aa66cc;
+	margin-right: 10px;
+	min-width: 40px;
+	text-align: center;
+}
+
+.step-images {
+	display: flex;
+	gap: 10px;
+	margin-left: 20px;
+}
+
+.step-images img {
+	width: 100px;
+	height: auto;
+	max-width: 100%;
+}
+
+.cards {
+	display: none;
+}
+
+/* Mode Selection Page Styles */
+#mode {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 1000px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+.mode-left {
+	flex: 1;
+}
+
+.mode-right {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.level {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.level-button {
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+
+.level-description {
+	font-size: 1rem;
+}
+
+.easy {
+	background-color: #F2CC8F;
+}
+
+.hard {
+	background-color: #E07A5F;
+}
+
+/* Game Controls */
+.game-controls {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 15px;
+	position: absolute;
+	top: 20px;
+	left: 20px;
+}
+
+#quit-button,
+#restart-button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+#quit-button,
+#restart-button,
+#timer,
+#music-icon {
+	background-color: #F2CC8F;
+	padding: 10px;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+/* Game Control Button Styles */
+#music-toggle-button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+#music-icon {
+	width: 28px;
+	height: 28px;
+}
+
+/* Memory Game Cards Styles */
+.memory-game {
+	display: grid;
+	grid-template-columns: repeat(6, 120px);
+	grid-gap: 20px;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+.memory-card {
+	width: 120px;
+	height: 150px;
+	position: relative;
+	transform: scale(1);
+	transition: transform 0.5s;
+	cursor: pointer;
+}
+
+.memory-card:active {
+	transform: scale(0.97);
+}
+
+.memory-card img {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	backface-visibility: hidden;
+}
+
+.memory-card .front-face {
+	transform: rotateY(180deg);
+}
+
+.memory-card.flipped .front-face {
+	transform: rotateY(0);
+}
+
+.memory-card.flipped .back-face {
+	transform: rotateY(180deg);
+}
+
+/* Back Face of Cards */
+.back-face {
+	background-color: #E07A5F;
+	transform: rotateY(0);
+}
+
+/* Media Queries */
+
+/* Mobile */
+@media (max-width: 767px) {
+	.memory-game {
+		grid-template-columns: repeat(4, 80px);
+		grid-gap: 10px;
+		margin-top: 50px;
+	}
+
+	.memory-card {
+		width: 80px;
+		height: 100px;
+	}
+
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 1.5rem;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	.level-button {
+		font-size: 1.8rem;
+	}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.memory-game {
+		grid-template-columns: repeat(5, 100px);
+		grid-gap: 15px;
+		margin-top: 80px;
+	}
+
+	.memory-card {
+		width: 100px;
+		height: 125px;
+	}
+
+	h1 {
+		font-size: 4rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	p {
+		font-size: 1.1rem;
+	}
+
+	.level-button {
+		font-size: 2rem;
+	}
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+	.memory-game {
+		grid-template-columns: repeat(6, 120px);
+		grid-gap: 20px;
+		margin-top: 100px;
+	}
+
+	.memory-card {
+		width: 120px;
+		height: 150px;
+	}
+
+	h1 {
+		font-size: 5rem;
+	}
+
+	h2 {
+		font-size: 2rem;
+	}
+
+	p {
+		font-size: 1.2rem;
+	}
+
+	.level-button {
+		font-size: 2.5rem;
+	}
+}
+
+/* Memory Game Cards Styles */
+.memory-game {
+	display: grid;
+	grid-template-columns: repeat(6, 120px);
+	grid-template-rows: repeat(3, 150px);
+	grid-gap: 20px;
+	justify-content: center;
+	margin-top: 100px;
+}
+
+.memory-card {
+	width: 120px;
+	height: 150px;
+	position: relative;
+	transform: scale(1);
+	transition: transform 0.5s;
+	cursor: pointer;
+}
+
+/* Media Queries */
+
+/* Mobile */
+@media (max-width: 767px) {
+	.memory-game {
+		grid-template-columns: repeat(3, 80px);
+		grid-template-rows: repeat(6, 100px);
+		grid-gap: 10px;
+		margin-top: 50px;
+	}
+
+	.memory-card {
+		width: 80px;
+		height: 100px;
+	}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.memory-game {
+		grid-template-columns: repeat(6, 100px);
+		grid-template-rows: repeat(3, 125px);
+		grid-gap: 15px;
+		margin-top: 80px;
+	}
+
+	.memory-card {
+		width: 100px;
+		height: 125px;
+	}
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+	.memory-game {
+		grid-template-columns: repeat(6, 120px);
+		grid-template-rows: repeat(3, 150px);
+		grid-gap: 20px;
+		margin-top: 100px;
+	}
+
+	.memory-card {
+		width: 120px;
+		height: 150px;
+	}
+}
+
+/* About the Game Styles */
+#about {
+	padding: 40px;
+}
+
+#about h1 {
+	font-size: 3rem;
+	margin-bottom: 30px;
+}
+
+#about p {
+	font-size: 1.2rem;
+	line-height: 1.5;
+	margin-bottom: 20px;
+}
+
+/* Media Queries */
+
+/* Mobile */
+@media (max-width: 767px) {
+	#about {
+		padding: 20px;
+	}
+
+	#about h1 {
+		font-size: 2.5rem;
+		margin-bottom: 20px;
+	}
+
+	#about p {
+		font-size: 1rem;
+		margin-bottom: 15px;
+	}
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+	#about {
+		padding: 30px;
+	}
+
+	#about h1 {
+		font-size: 2.8rem;
+		margin-bottom: 25px;
+	}
+
+	#about p {
+		font-size: 1.1rem;
+		margin-bottom: 18px;
+	}
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+	#about {
+		padding: 40px;
+	}
+
+	#about h1 {
+		font-size: 3rem;
+		margin-bottom: 30px;
+	}
+
+	#about p {
+		font-size: 1.2rem;
+		margin-bottom: 20px;
+	}
+}
+
+/*
+CSS doesn't allow variables to be used in media
+queries just yet, but you can use these values
+to help you out.
+
+	--size-xs: 320px;
+	--size-sm: 480px;
+	--size-md: 768px;
+	--size-lg: 1024px;
+	--size-xl: 1200px;
+*/
