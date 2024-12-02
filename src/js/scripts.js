@@ -80,12 +80,7 @@ window.addEventListener("DOMContentLoaded", () => {
 	const cards = document.querySelectorAll(".memory-card");
 
 	// Shuffle cards
-	(function shuffle() {
-		cards.forEach((card) => {
-			let randomPos = Math.floor(Math.random() * 18);
-			card.style.order = randomPos;
-		});
-	})();
+	shuffle();
 
 	// Add event listeners to cards
 	cards.forEach((card) => card.addEventListener("click", flipCard));
