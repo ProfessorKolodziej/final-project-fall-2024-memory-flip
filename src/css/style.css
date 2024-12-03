@@ -103,36 +103,42 @@ p {
 .instructions {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-	gap: 20px;
+	gap: 40px;
+	max-width: 100%;
+	padding: 20px;
 }
 
 .step {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+	gap: 20px;
+	width: 100%;
 }
 
 .number {
 	font-family: 'Moirai One', sans-serif;
-	font-size: 10rem;
-	font-weight: 400;
-	margin: 0;
+	font-size: 6rem;
 	color: #aa66cc;
-	margin-right: 10px;
-	min-width: 40px;
-	text-align: center;
+	line-height: 1;
+	flex-shrink: 0;
+}
+
+.step p {
+	font-size: 1.2rem;
+	margin: 0;
+	padding-top: 15px;
 }
 
 .step-images {
 	display: flex;
 	gap: 10px;
-	margin-left: 20px;
+	margin-top: 10px;
 }
 
 .step-images img {
 	width: 100px;
 	height: auto;
-	max-width: 100%;
+	border-radius: 8px;
 }
 
 .cards {
@@ -370,6 +376,63 @@ p {
 
 	.level-button {
 		font-size: 2.5rem;
+	}
+}
+
+/* mobile about p*/
+@media (max-width: 767px) {
+	.instructions {
+		gap: 30px;
+		padding: 10px;
+	}
+
+	.step {
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		gap: 10px;
+	}
+
+	.number {
+		font-size: 4rem;
+		margin-bottom: -10px;
+	}
+
+	.step p {
+		font-size: 1rem;
+		padding-top: 0;
+	}
+
+	.step-images {
+		justify-content: center;
+		margin-top: 15px;
+	}
+
+	.step-images img {
+		width: 80px;
+	}
+}
+
+/* tablet about p */
+@media (min-width: 768px) and (max-width: 1023px) {
+	.instructions {
+		gap: 35px;
+	}
+
+	.number {
+		font-size: 5rem;
+	}
+
+	.step-images img {
+		width: 90px;
+	}
+}
+
+/* desktop about p */
+@media (min-width: 1024px) {
+	.instructions {
+		max-width: 900px;
+		margin: 0 auto;
 	}
 }
 
